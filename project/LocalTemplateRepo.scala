@@ -25,14 +25,14 @@ object LocalTemplateRepo {
       "play-scala, " +
       "hello-akka, " +
       "hello-scala, " +
-      "hello-slick-2.1, " +
+      "hello-slick-3.0, " +
       "reactive-stocks",
     localTemplateCacheCreated <<= (localTemplateCache, localTemplateCacheHash, Keys.fullClasspath in Runtime, remoteTemplateCacheUri, streams, overrideWithTemplates) map makeTemplateCache,
     scalaVersion := Dependencies.scalaVersion,
     libraryDependencies += Dependencies.templateCache,
     // TODO - Allow debug version for testing?
     remoteTemplateCacheUri := "http://downloads.typesafe.com/typesafe-activator",
-    localTemplateCacheHash := "0c45d90e741a3744f5a93e3f89bb44412d4f43a5",
+    localTemplateCacheHash := "387b34fd52c0f4ceaddae4c94becbb5e06ac1ae3",
     latestTemplateCacheHash := downloadLatestTemplateCacheHash(remoteTemplateCacheUri.value, streams.value),
     checkTemplateCacheHash := {
       if (enableCheckTemplateCacheHash.value)
